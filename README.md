@@ -134,4 +134,10 @@ gemma4_ctx_adapter.py       context-injection adapter
 ```
 
 Per-utterance predictions are published with the leaderboard so anyone can recompute a number
-instead of trusting it. Code is MIT licensed; tables and predictions are CC BY 4.0.
+instead of trusting it.
+
+## Licences
+
+Code is MIT. Tables and predictions are CC BY 4.0, as are the three source datasets (FLEURS,
+IndicVoices, Kathbath). No audio is redistributed; the prediction files contain references,
+hypotheses and metrics only.

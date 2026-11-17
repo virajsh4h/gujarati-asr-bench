@@ -68,3 +68,6 @@ Anyone can recompute a number from `predictions/` instead of trusting the table.
   nondeterministic kernels.
 
 Code and full write-up: https://github.com/virajsh4h/gujarati-asr-bench
+
+Source datasets are CC BY 4.0. No audio is redistributed; `predictions/` contains references,
+hypotheses and metrics only.
