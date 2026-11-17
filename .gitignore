@@ -36,3 +36,4 @@ results/error_analysis/
 
 .venv/
 .pytest_cache/
+poetry.lock
