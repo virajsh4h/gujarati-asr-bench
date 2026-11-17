@@ -93,8 +93,8 @@ python -m gujasr verify --db results/harness.sqlite
 
 `requirements-lock.txt` pins the exact environment the table was produced in. `gujasr run` with
 `bodhan`, `sravaani`, `whisper-gu`, `whisper` and `gemma4` re-runs five rows from public weights.
-The four adapted Gemma stages are in the repo, but their checkpoints are not published, so those
-rows come from the stored run.
+The leaderboard also retains results from earlier Gemma adaptation stages; their training code
+and checkpoints are not part of this benchmark repository, so those rows are historical results.
 
 CPU-only tests, no GPU, no model download:
 
@@ -113,9 +113,10 @@ pip install jiwer numpy pytest && pytest -q
 | Coverage shown as n/expected in every table | a partial run ranked against a complete one |
 | `gujasr verify` recomputes every row from raw text | drift between stored and current normaliser |
 
-Model code is untouched. Every checkpoint still loads through `build_adapter()` in
-`run_baselines_optimized.py`; the harness wraps it, it does not reimplement it. Those adapter and
-training files are in this repo, unchanged.
+Model code is not reimplemented by the harness. Available model adapters load through
+`build_adapter()` in `run_baselines_optimized.py`; the harness wraps them. Historical Gemma
+adaptation results remain in the leaderboard, but their training scripts and checkpoint adapters
+are intentionally not included.
 
 ## Reproduction check
 
@@ -143,12 +144,8 @@ tests/                      25 tests, CPU only
 results/harness/            leaderboard.md, leaderboard.csv, leaderboard.json, report.html
 configs/                    run configuration
 scripts/                    huggingface upload
-run_baselines_optimized.py  model adapters and decode paths, unchanged
+run_baselines_optimized.py  runnable model adapters and decode paths
 gu_normalizer.py            text normaliser used for every row
-step5_gemma_zero.py         constrained-decode stage
-train_step6_sft.py          SFT adapter
-train_step7_grpo.py         GRPO adapter
-gemma4_ctx_adapter.py       context-injection adapter
 ```
 
 Per-utterance predictions are published with the leaderboard so anyone can recompute a number

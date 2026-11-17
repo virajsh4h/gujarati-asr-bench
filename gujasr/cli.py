@@ -31,6 +31,14 @@ def cmd_run(args) -> int:
     if not cfg.models or not cfg.datasets:
         print("nothing to run: pass --models and --datasets", file=sys.stderr)
         return 2
+    unavailable = sorted(set(cfg.models) - set(manifests.RUNNABLE_MODELS))
+    if unavailable:
+        print(
+            f"models are not runnable from this repository: {', '.join(unavailable)}; "
+            f"available models: {', '.join(manifests.RUNNABLE_MODELS)}",
+            file=sys.stderr,
+        )
+        return 2
     summaries = runner.run(cfg)
     _print(summaries)
     return 0 if all(s["rows"] for s in summaries) else 1
@@ -149,7 +157,12 @@ def cmd_verify(args) -> int:
 
 
 def cmd_models(args) -> int:
-    _print({key: spec["name"] for key, spec in manifests.MODELS.items()})
+    _print(
+        {
+            key: manifests.MODELS[key]["name"]
+            for key in manifests.RUNNABLE_MODELS
+        }
+    )
     return 0
 
 

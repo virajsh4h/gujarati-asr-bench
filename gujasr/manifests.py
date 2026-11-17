@@ -75,6 +75,7 @@ MODELS = {
     },
 }
 
+RUNNABLE_MODELS = ("bodhan", "sravaani", "whisper-gu", "whisper", "gemma4")
 PUBLIC_MODELS = ("bodhan", "sravaani", "whisper-gu", "whisper")
 
 
