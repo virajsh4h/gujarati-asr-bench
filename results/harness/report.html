@@ -1,0 +1,81 @@
+<!doctype html><meta charset='utf-8'>
+<title>Gujarati ASR leaderboard</title>
+<style>
+body{font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:#16181d;max-width:980px;margin:48px auto;padding:0 20px}
+h1{font-size:30px;letter-spacing:-.02em;margin-bottom:4px}
+h2{font-size:19px;margin-top:38px;padding-bottom:6px;border-bottom:1px solid #e6e8ec}
+.sub{color:#6b7280;margin:0 0 28px}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{text-align:left;font-weight:600;color:#4b5563;border-bottom:1px solid #d1d5db;padding:8px 10px}
+td{padding:7px 10px;border-bottom:1px solid #f0f1f3;font-variant-numeric:tabular-nums}
+tr:hover td{background:#fafbfc}
+.num{text-align:right}
+code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:12.5px}
+</style>
+<h1>Gujarati ASR leaderboard</h1>
+<p class='sub'>Corpus CER over fleurs, indicvoices, kathbath. 95% bootstrap interval over utterances, 2000 resamples.</p>
+<h2>Three-dataset macro</h2><table><tr><th>#</th><th>Model</th><th class='num'>Macro CER</th><th class='num'>95% CI</th><th class='num'>Macro WER</th></tr>
+<tr><td>1</td><td>indic-transcribe-core</td><td class='num'>4.26</td><td class='num'>4.09–4.44</td><td class='num'>14.58</td></tr>
+<tr><td>2</td><td>sravaani-1.0</td><td class='num'>5.12</td><td class='num'>4.94–5.30</td><td class='num'>17.01</td></tr>
+<tr><td>3</td><td>gemma-4-E4B-ctx</td><td class='num'>6.35</td><td class='num'>6.16–6.55</td><td class='num'>20.02</td></tr>
+<tr><td>4</td><td>gemma-4-E4B-grpo</td><td class='num'>6.35</td><td class='num'>6.18–6.52</td><td class='num'>19.97</td></tr>
+<tr><td>5</td><td>gemma-4-E4B-sft</td><td class='num'>6.44</td><td class='num'>6.27–6.61</td><td class='num'>20.22</td></tr>
+<tr><td>6</td><td>gemma-4-E4B-step5</td><td class='num'>10.01</td><td class='num'>9.77–10.27</td><td class='num'>27.92</td></tr>
+<tr><td>7</td><td>gemma-4-E4B-it</td><td class='num'>10.71</td><td class='num'>10.37–11.08</td><td class='num'>28.80</td></tr>
+<tr><td>8</td><td>whisper-gujarati-small</td><td class='num'>18.88</td><td class='num'>18.38–19.39</td><td class='num'>34.72</td></tr>
+<tr><td>9</td><td>whisper-small</td><td class='num'>119.52</td><td class='num'>117.21–122.05</td><td class='num'>280.02</td></tr>
+</table><h2>Per dataset</h2><table><tr><th>Model</th><th>Dataset</th><th class='num'>N</th><th class='num'>CER</th><th class='num'>95% CI</th><th class='num'>WER</th><th class='num'>Loop %</th><th class='num'>RTF</th></tr>
+<tr><td>indic-transcribe-core</td><td>fleurs</td><td class='num'>1000</td><td class='num'>5.01</td><td class='num'>4.58–5.48</td><td class='num'>15.87</td><td class='num'>0.0</td><td class='num'>0.0775</td></tr>
+<tr><td>indic-transcribe-core</td><td>indicvoices</td><td class='num'>2968</td><td class='num'>5.36</td><td class='num'>5.12–5.62</td><td class='num'>15.88</td><td class='num'>0.8</td><td class='num'>0.0760</td></tr>
+<tr><td>indic-transcribe-core</td><td>kathbath</td><td class='num'>2905</td><td class='num'>2.41</td><td class='num'>2.30–2.51</td><td class='num'>12.00</td><td class='num'>0.0</td><td class='num'>0.0810</td></tr>
+<tr><td>gemma-4-E4B-it</td><td>fleurs</td><td class='num'>1000</td><td class='num'>7.77</td><td class='num'>7.24–8.41</td><td class='num'>24.68</td><td class='num'>0.1</td><td class='num'>0.0455</td></tr>
+<tr><td>gemma-4-E4B-it</td><td>indicvoices</td><td class='num'>2968</td><td class='num'>16.59</td><td class='num'>15.92–17.34</td><td class='num'>35.91</td><td class='num'>0.7</td><td class='num'>0.0500</td></tr>
+<tr><td>gemma-4-E4B-it</td><td>kathbath</td><td class='num'>2905</td><td class='num'>7.77</td><td class='num'>7.29–8.40</td><td class='num'>25.81</td><td class='num'>0.1</td><td class='num'>0.0462</td></tr>
+<tr><td>gemma-4-E4B-ctx</td><td>fleurs</td><td class='num'>1000</td><td class='num'>5.78</td><td class='num'>5.45–6.12</td><td class='num'>19.93</td><td class='num'>0.0</td><td class='num'>0.0173</td></tr>
+<tr><td>gemma-4-E4B-ctx</td><td>indicvoices</td><td class='num'>2968</td><td class='num'>8.97</td><td class='num'>8.53–9.45</td><td class='num'>22.85</td><td class='num'>0.2</td><td class='num'>0.0211</td></tr>
+<tr><td>gemma-4-E4B-ctx</td><td>kathbath</td><td class='num'>2905</td><td class='num'>4.30</td><td class='num'>4.15–4.46</td><td class='num'>17.29</td><td class='num'>0.0</td><td class='num'>0.0168</td></tr>
+<tr><td>gemma-4-E4B-grpo</td><td>fleurs</td><td class='num'>1000</td><td class='num'>5.59</td><td class='num'>5.28–5.91</td><td class='num'>19.08</td><td class='num'>0.0</td><td class='num'>0.0160</td></tr>
+<tr><td>gemma-4-E4B-grpo</td><td>indicvoices</td><td class='num'>2967</td><td class='num'>9.09</td><td class='num'>8.76–9.45</td><td class='num'>23.54</td><td class='num'>0.3</td><td class='num'>0.0182</td></tr>
+<tr><td>gemma-4-E4B-grpo</td><td>kathbath</td><td class='num'>2905</td><td class='num'>4.38</td><td class='num'>4.21–4.54</td><td class='num'>17.30</td><td class='num'>0.0</td><td class='num'>0.0147</td></tr>
+<tr><td>gemma-4-E4B-sft</td><td>fleurs</td><td class='num'>1000</td><td class='num'>5.63</td><td class='num'>5.31–5.97</td><td class='num'>19.22</td><td class='num'>0.0</td><td class='num'>0.0159</td></tr>
+<tr><td>gemma-4-E4B-sft</td><td>indicvoices</td><td class='num'>2968</td><td class='num'>9.27</td><td class='num'>8.90–9.63</td><td class='num'>23.93</td><td class='num'>0.3</td><td class='num'>0.0180</td></tr>
+<tr><td>gemma-4-E4B-sft</td><td>kathbath</td><td class='num'>2905</td><td class='num'>4.41</td><td class='num'>4.25–4.57</td><td class='num'>17.52</td><td class='num'>0.0</td><td class='num'>0.0146</td></tr>
+<tr><td>gemma-4-E4B-step5</td><td>fleurs</td><td class='num'>1000</td><td class='num'>7.35</td><td class='num'>6.99–7.73</td><td class='num'>24.14</td><td class='num'>0.0</td><td class='num'>0.0275</td></tr>
+<tr><td>gemma-4-E4B-step5</td><td>indicvoices</td><td class='num'>2968</td><td class='num'>15.90</td><td class='num'>15.29–16.56</td><td class='num'>35.25</td><td class='num'>0.1</td><td class='num'>0.0301</td></tr>
+<tr><td>gemma-4-E4B-step5</td><td>kathbath</td><td class='num'>2905</td><td class='num'>6.79</td><td class='num'>6.58–7.00</td><td class='num'>24.35</td><td class='num'>0.0</td><td class='num'>0.0252</td></tr>
+<tr><td>sravaani-1.0</td><td>fleurs</td><td class='num'>1000</td><td class='num'>5.37</td><td class='num'>4.96–5.83</td><td class='num'>17.36</td><td class='num'>0.0</td><td class='num'>0.0078</td></tr>
+<tr><td>sravaani-1.0</td><td>indicvoices</td><td class='num'>2968</td><td class='num'>7.31</td><td class='num'>6.98–7.66</td><td class='num'>20.95</td><td class='num'>1.0</td><td class='num'>0.0065</td></tr>
+<tr><td>sravaani-1.0</td><td>kathbath</td><td class='num'>2905</td><td class='num'>2.67</td><td class='num'>2.55–2.78</td><td class='num'>12.73</td><td class='num'>0.0</td><td class='num'>0.0063</td></tr>
+<tr><td>whisper-small</td><td>fleurs</td><td class='num'>1000</td><td class='num'>102.43</td><td class='num'>99.13–105.87</td><td class='num'>258.29</td><td class='num'>15.9</td><td class='num'>0.0120</td></tr>
+<tr><td>whisper-small</td><td>indicvoices</td><td class='num'>2968</td><td class='num'>149.52</td><td class='num'>143.68–155.74</td><td class='num'>313.38</td><td class='num'>29.0</td><td class='num'>0.0184</td></tr>
+<tr><td>whisper-small</td><td>kathbath</td><td class='num'>2905</td><td class='num'>106.62</td><td class='num'>103.61–109.72</td><td class='num'>268.38</td><td class='num'>6.9</td><td class='num'>0.0196</td></tr>
+<tr><td>whisper-gujarati-small</td><td>fleurs</td><td class='num'>1000</td><td class='num'>10.92</td><td class='num'>10.02–11.85</td><td class='num'>27.75</td><td class='num'>0.0</td><td class='num'>0.0109</td></tr>
+<tr><td>whisper-gujarati-small</td><td>indicvoices</td><td class='num'>2968</td><td class='num'>36.23</td><td class='num'>35.13–37.35</td><td class='num'>50.09</td><td class='num'>8.5</td><td class='num'>0.0111</td></tr>
+<tr><td>whisper-gujarati-small</td><td>kathbath</td><td class='num'>2905</td><td class='num'>9.48</td><td class='num'>8.94–10.06</td><td class='num'>26.33</td><td class='num'>0.1</td><td class='num'>0.0122</td></tr>
+</table>
+<h2>Paired against <code>bodhan</code></h2><table><tr><th>Model</th><th>Dataset</th><th class='num'>Δ CER</th><th class='num'>95% CI</th><th class='num'>p</th></tr>
+<tr><td>gemma-4-E4B-it</td><td>fleurs</td><td class='num'>+2.75</td><td class='num'>+2.16–+3.42</td><td class='num'>0.0000</td></tr>
+<tr><td>gemma-4-E4B-ctx</td><td>fleurs</td><td class='num'>+0.76</td><td class='num'>+0.43–+1.06</td><td class='num'>0.0000</td></tr>
+<tr><td>gemma-4-E4B-grpo</td><td>fleurs</td><td class='num'>+0.57</td><td class='num'>+0.18–+0.92</td><td class='num'>0.0040</td></tr>
+<tr><td>gemma-4-E4B-sft</td><td>fleurs</td><td class='num'>+0.62</td><td class='num'>+0.24–+0.95</td><td class='num'>0.0010</td></tr>
+<tr><td>gemma-4-E4B-step5</td><td>fleurs</td><td class='num'>+2.34</td><td class='num'>+1.90–+2.78</td><td class='num'>0.0000</td></tr>
+<tr><td>sravaani-1.0</td><td>fleurs</td><td class='num'>+0.35</td><td class='num'>+0.25–+0.46</td><td class='num'>0.0000</td></tr>
+<tr><td>whisper-small</td><td>fleurs</td><td class='num'>+97.42</td><td class='num'>+94.11–+100.83</td><td class='num'>0.0000</td></tr>
+<tr><td>whisper-gujarati-small</td><td>fleurs</td><td class='num'>+5.91</td><td class='num'>+4.98–+6.84</td><td class='num'>0.0000</td></tr>
+<tr><td>gemma-4-E4B-it</td><td>indicvoices</td><td class='num'>+11.23</td><td class='num'>+10.63–+11.94</td><td class='num'>0.0000</td></tr>
+<tr><td>gemma-4-E4B-ctx</td><td>indicvoices</td><td class='num'>+3.61</td><td class='num'>+3.27–+3.98</td><td class='num'>0.0000</td></tr>
+<tr><td>gemma-4-E4B-grpo</td><td>indicvoices</td><td class='num'>+3.73</td><td class='num'>+3.50–+3.98</td><td class='num'>0.0000</td></tr>
+<tr><td>gemma-4-E4B-sft</td><td>indicvoices</td><td class='num'>+3.91</td><td class='num'>+3.67–+4.14</td><td class='num'>0.0000</td></tr>
+<tr><td>gemma-4-E4B-step5</td><td>indicvoices</td><td class='num'>+10.54</td><td class='num'>+9.99–+11.11</td><td class='num'>0.0000</td></tr>
+<tr><td>sravaani-1.0</td><td>indicvoices</td><td class='num'>+1.95</td><td class='num'>+1.75–+2.17</td><td class='num'>0.0000</td></tr>
+<tr><td>whisper-small</td><td>indicvoices</td><td class='num'>+144.15</td><td class='num'>+138.37–+150.42</td><td class='num'>0.0000</td></tr>
+<tr><td>whisper-gujarati-small</td><td>indicvoices</td><td class='num'>+30.87</td><td class='num'>+29.88–+31.87</td><td class='num'>0.0000</td></tr>
+<tr><td>gemma-4-E4B-it</td><td>kathbath</td><td class='num'>+5.36</td><td class='num'>+4.91–+5.97</td><td class='num'>0.0000</td></tr>
+<tr><td>gemma-4-E4B-ctx</td><td>kathbath</td><td class='num'>+1.89</td><td class='num'>+1.77–+2.01</td><td class='num'>0.0000</td></tr>
+<tr><td>gemma-4-E4B-grpo</td><td>kathbath</td><td class='num'>+1.97</td><td class='num'>+1.84–+2.10</td><td class='num'>0.0000</td></tr>
+<tr><td>gemma-4-E4B-sft</td><td>kathbath</td><td class='num'>+2.00</td><td class='num'>+1.87–+2.12</td><td class='num'>0.0000</td></tr>
+<tr><td>gemma-4-E4B-step5</td><td>kathbath</td><td class='num'>+4.38</td><td class='num'>+4.20–+4.57</td><td class='num'>0.0000</td></tr>
+<tr><td>sravaani-1.0</td><td>kathbath</td><td class='num'>+0.26</td><td class='num'>+0.17–+0.35</td><td class='num'>0.0000</td></tr>
+<tr><td>whisper-small</td><td>kathbath</td><td class='num'>+104.21</td><td class='num'>+101.18–+107.34</td><td class='num'>0.0000</td></tr>
+<tr><td>whisper-gujarati-small</td><td>kathbath</td><td class='num'>+7.07</td><td class='num'>+6.53–+7.65</td><td class='num'>0.0000</td></tr>
+</table>
