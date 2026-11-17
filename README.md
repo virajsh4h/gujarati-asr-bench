@@ -91,7 +91,10 @@ python -m gujasr report --out results/harness
 python -m gujasr verify --db results/harness.sqlite
 ```
 
-`requirements-lock.txt` pins the exact environment the table was produced in.
+`requirements-lock.txt` pins the exact environment the table was produced in. `gujasr run` with
+`bodhan`, `sravaani`, `whisper-gu`, `whisper` and `gemma4` re-runs five rows from public weights.
+The four adapted Gemma stages are in the repo, but their checkpoints are not published, so those
+rows come from the stored run.
 
 CPU-only tests, no GPU, no model download:
 
@@ -112,7 +115,7 @@ pip install jiwer numpy pytest && pytest -q
 
 Model code is untouched. Every checkpoint still loads through `build_adapter()` in
 `run_baselines_optimized.py`; the harness wraps it, it does not reimplement it. Those adapter and
-training files are in this repo, unchanged, so the table can be reproduced from one clone.
+training files are in this repo, unchanged.
 
 ## Layout
 
