@@ -19,6 +19,7 @@ gujasr = "gujasr.cli:main"
 
 [tool.setuptools]
 packages = ["gujasr"]
+py-modules = ["gu_normalizer"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
