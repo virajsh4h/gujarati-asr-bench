@@ -9,22 +9,6 @@ from pathlib import Path
 
 from huggingface_hub import HfApi
 
-CARD_HEADER = """---
-license: cc-by-4.0
-task_categories:
-  - automatic-speech-recognition
-language:
-  - gu
-pretty_name: Gujarati ASR leaderboard
-tags:
-  - asr
-  - gujarati
-  - benchmark
-  - evaluation
----
-"""
-
-
 def export_predictions(db_path: str, out_dir: Path) -> int:
     import sqlite3
 
@@ -74,7 +58,7 @@ def main() -> int:
         count = export_predictions(args.db, staging)
         card = Path(args.card)
         if card.exists():
-            (staging / "README.md").write_text(CARD_HEADER + card.read_text(encoding="utf-8"), encoding="utf-8")
+            (staging / "README.md").write_text(card.read_text(encoding="utf-8"), encoding="utf-8")
         (staging / "manifest.json").write_text(
             json.dumps({"predictions": count, "source": args.db}, indent=2), encoding="utf-8"
         )
