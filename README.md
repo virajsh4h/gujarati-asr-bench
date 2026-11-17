@@ -117,6 +117,24 @@ Model code is untouched. Every checkpoint still loads through `build_adapter()` 
 `run_baselines_optimized.py`; the harness wraps it, it does not reimplement it. Those adapter and
 training files are in this repo, unchanged.
 
+## Reproduction check
+
+I re-ran the four public models through the harness on the same pinned data: 27,492 utterances
+across twelve model × dataset cells. Against the stored rows, corpus CER moved by at most 0.05
+points.
+
+| Model | FLEURS | IndicVoices | Kathbath |
+|---|---|---|---|
+| indic-transcribe-core | +0.02 | 0.00 | +0.01 |
+| sravaani-1.0 | 0.00 | +0.01 | 0.00 |
+| whisper-gujarati-small | 0.00 | 0.00 | 0.00 |
+| whisper-small | −0.05 | 0.00 | 0.00 |
+
+sravaani's adapter writes each batch to `/dev/shm`; 96 of its 6,873 reads failed there in the
+re-run. The harness stored them as tagged failures and scored the remaining 6,777, so its coverage
+is 2,936/2,968 on IndicVoices and 2,841/2,905 on Kathbath. CER on the scored rows did not move. A
+dropped batch would have silently raised or lowered that number; here it is visible.
+
 ## Layout
 
 ```

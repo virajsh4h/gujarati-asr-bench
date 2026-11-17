@@ -66,6 +66,8 @@ Anyone can recompute a number from `predictions/` instead of trusting the table.
 - CER is a text metric. It does not measure whether a transcript is usable downstream.
 - One seed. Intervals cover sampling of utterances, not run-to-run variance from batching or
   nondeterministic kernels.
+- A full re-run of the four public models moved corpus CER by at most 0.05 points per cell; the
+  repository records the per-cell deltas.
 
 Code and full write-up: https://github.com/virajsh4h/gujarati-asr-bench
 
