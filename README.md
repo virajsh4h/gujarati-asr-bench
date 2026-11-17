@@ -1,5 +1,10 @@
 # Gujarati ASR, with error bars
 
+Most Gujarati ASR comparisons are a single number per model, on different splits, through different
+normalisers. This is one split, one normaliser, one harness, and an interval on every number. I
+built it to see where my own fine-tunes actually stand against the strongest open systems, on
+identical audio.
+
 Nine systems. 6,873 utterances. Three public benchmarks. Same audio for every model.
 
 Every number below is a corpus CER with a 95% interval over utterances, and every "this beats
