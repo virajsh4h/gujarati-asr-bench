@@ -2,7 +2,7 @@ name: ci
 
 on:
   push:
-    branches: [main, "harness/*"]
+    branches: [main]
   pull_request:
 
 jobs:
@@ -16,5 +16,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
-      - run: pip install jiwer numpy pytest
+      - run: pip install -e ".[dev]"
       - run: pytest -q
